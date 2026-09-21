@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, StatusBar, ScrollView } from 'react-native';
 
-// Define the shape of incoming sensor data matching all shared global variables
+// Define the shape of incoming sensor data matching the JSON keys from ESP32
 interface SensorData {
   heartRate?: number;
   bodyTemp?: number;
-  movement?: number;
+  motion?: number; 
   soundLevel?: number;
   airQuality?: number;
 }
@@ -89,7 +89,7 @@ export default function Index() {
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Movement Level</Text>
           <Text style={styles.cardValue}>
-            {sensorData.movement !== undefined ? sensorData.movement.toFixed(1) : '--'}
+            {sensorData.motion !== undefined ? sensorData.motion.toFixed(1) : '--'}
           </Text>
         </View>
 
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#1C1C1E',
   },
-    unit: {
+  unit: {
     fontSize: 14,
     fontWeight: '500',
     color: '#8E8E93',
